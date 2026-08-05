@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suhel Rehman M — QA Analyst & Automation Test Engineer</title>
+<meta name="description" content="Portfolio of Suhel Rehman M, QA Analyst and Automation Test Engineer with 3.5+ years across retail, banking, and education domains.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0B0F1A;
+  --bg-raise:#101624;
+  --bg-card:#131A2B;
+  --line:rgba(232,236,244,.09);
+  --line-strong:rgba(232,236,244,.16);
+  --ink:#E8ECF4;
+  --muted:#8B94A7;
+  --amber:#FFB454;
+  --amber-dim:rgba(255,180,84,.14);
+  --pass:#3DDC97;
+  --pass-dim:rgba(61,220,151,.12);
+  --fail:#FF6B6B;
+  --font-display:'Chakra Petch',system-ui,sans-serif;
+  --font-body:'IBM Plex Sans',system-ui,sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+  --maxw:1060px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--amber);color:#141414}
+
+/* ---------- background grid ---------- */
+.grid-bg{
+  position:fixed;inset:0;z-index:-1;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,black 0%,transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,black 0%,transparent 75%);
+  opacity:.6;
+}
+
+a{color:var(--amber);text-decoration:none}
+a:hover{text-decoration:underline;text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{
+  outline:2px solid var(--amber);outline-offset:3px;border-radius:2px;
+}
+
+/* ---------- sticky suite bar ---------- */
+.suitebar{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  background:rgba(11,15,26,.85);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);
+}
+.suitebar-inner{
+  max-width:var(--maxw);margin:0 auto;
+  display:flex;align-items:center;gap:14px;
+  padding:12px 24px;
+  font-family:var(--font-mono);font-size:12.5px;
+}
+.dots{display:flex;gap:6px;flex-shrink:0}
+.dots span{width:10px;height:10px;border-radius:50%;background:var(--line-strong)}
+.dots span:nth-child(1){background:#FF6B6B}
+.dots span:nth-child(2){background:#FFB454}
+.dots span:nth-child(3){background:#3DDC97}
+.suite-name{color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.suite-name b{color:var(--ink);font-weight:500}
+.suite-status{margin-left:auto;color:var(--pass);white-space:nowrap;flex-shrink:0}
+.suite-track{
+  position:absolute;bottom:-1px;left:0;height:2px;width:100%;
+  background:transparent;
+}
+.suite-fill{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,var(--amber),var(--pass));
+  transition:width .5s cubic-bezier(.22,1,.36,1);
+}
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+section{padding:110px 0}
+
+/* ---------- reveal system ---------- */
+.reveal{opacity:0;transform:translateY(34px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.08s}
+.reveal[data-delay="2"]{transition-delay:.16s}
+.reveal[data-delay="3"]{transition-delay:.24s}
+.reveal[data-delay="4"]{transition-delay:.32s}
+
+/* ---------- feature header (section headings) ---------- */
+.feature-head{margin-bottom:44px}
+.feature-kw{
+  font-family:var(--font-mono);font-size:13px;color:var(--amber);
+  display:flex;align-items:center;gap:10px;margin-bottom:14px;letter-spacing:.02em;
+}
+.feature-kw::after{content:"";height:1px;flex:1;background:linear-gradient(90deg,var(--line-strong),transparent)}
+.feature-title{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(28px,4.2vw,44px);line-height:1.12;letter-spacing:.01em;
+}
+.check-chip{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:var(--font-mono);font-size:11.5px;
+  padding:4px 11px;border-radius:100px;
+  border:1px solid var(--line-strong);color:var(--muted);
+  margin-left:14px;vertical-align:middle;
+  transition:all .5s ease .4s;
+}
+.reveal.in .check-chip,
+.check-chip.passed{
+  border-color:rgba(61,220,151,.4);color:var(--pass);background:var(--pass-dim);
+}
+.check-chip::before{content:"○ pending"}
+.reveal.in .check-chip::before,
+.check-chip.passed::before{content:"✓ passed"}
+
+/* ---------- hero ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;padding:130px 0 90px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;width:100%}
+.eyebrow{
+  font-family:var(--font-mono);font-size:13px;color:var(--amber);
+  margin-bottom:20px;display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--amber)}
+h1{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(40px,6vw,64px);line-height:1.05;letter-spacing:.005em;
+  margin-bottom:18px;
+}
+h1 .accent{color:var(--amber)}
+.hero-role{
+  font-family:var(--font-mono);font-size:15px;color:var(--muted);
+  margin-bottom:26px;
+}
+.hero-role .cursor{display:inline-block;width:9px;height:18px;background:var(--amber);vertical-align:-3px;animation:blink 1.05s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero-sub{color:var(--muted);max-width:46ch;margin-bottom:34px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-family:var(--font-mono);font-size:13.5px;font-weight:500;
+  padding:13px 22px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--amber);
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.btn:hover{text-decoration:none;transform:translateY(-2px)}
+.btn-primary{background:var(--amber);color:#161006}
+.btn-primary:hover{box-shadow:0 8px 28px rgba(255,180,84,.25)}
+.btn-ghost{color:var(--amber);background:transparent}
+.btn-ghost:hover{background:var(--amber-dim)}
+
+/* terminal */
+.terminal{
+  background:#0D1220;
+  border:1px solid var(--line-strong);
+  border-radius:12px;
+  box-shadow:0 24px 60px rgba(0,0,0,.45);
+  overflow:hidden;
+  font-family:var(--font-mono);font-size:13px;line-height:1.85;
+}
+.term-bar{
+  display:flex;align-items:center;gap:10px;
+  padding:11px 16px;border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.02);
+}
+.term-bar .title{font-size:11.5px;color:var(--muted);margin-left:4px}
+.term-body{padding:20px 22px;min-height:305px}
+.term-body .line{opacity:0;transform:translateY(4px);transition:opacity .3s ease,transform .3s ease;white-space:pre-wrap;word-break:break-word}
+.term-body .line.show{opacity:1;transform:none}
+.t-cmd{color:var(--ink)}
+.t-cmd .prompt{color:var(--amber)}
+.t-dim{color:var(--muted)}
+.t-pass{color:var(--pass)}
+.t-time{color:var(--muted);font-size:11.5px}
+.t-summary{color:var(--pass);font-weight:600;margin-top:8px}
+
+/* scroll hint */
+.scroll-hint{
+  position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-mono);font-size:11px;color:var(--muted);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.scroll-hint .bar{width:1px;height:34px;background:var(--line-strong);overflow:hidden;position:relative}
+.scroll-hint .bar::after{
+  content:"";position:absolute;top:-40%;left:0;width:100%;height:40%;
+  background:var(--amber);animation:drip 1.8s ease-in-out infinite;
+}
+@keyframes drip{to{top:110%}}
+
+/* ---------- about (gherkin) ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.gherkin{
+  background:var(--bg-card);border:1px solid var(--line);border-radius:12px;
+  padding:28px 30px;font-family:var(--font-mono);font-size:13.5px;line-height:2.15;
+}
+.gh-kw{color:var(--amber);font-weight:600}
+.gh-line{display:block;padding-left:0}
+.gh-indent{display:block;padding-left:26px}
+.about-text p{color:var(--muted);margin-bottom:18px}
+.about-text p strong{color:var(--ink);font-weight:600}
+.stat-row{display:flex;gap:36px;margin-top:30px;flex-wrap:wrap}
+.stat .num{font-family:var(--font-display);font-weight:700;font-size:34px;color:var(--amber);line-height:1}
+.stat .lbl{font-family:var(--font-mono);font-size:11.5px;color:var(--muted);margin-top:6px;letter-spacing:.03em}
+
+/* ---------- skills ---------- */
+.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.skill-card{
+  background:var(--bg-card);border:1px solid var(--line);border-radius:12px;
+  padding:26px;transition:border-color .3s ease,transform .3s ease;
+}
+.skill-card:hover{border-color:rgba(255,180,84,.35);transform:translateY(-3px)}
+.skill-card h3{
+  font-family:var(--font-mono);font-size:12px;font-weight:600;
+  color:var(--amber);letter-spacing:.08em;text-transform:uppercase;
+  margin-bottom:18px;display:flex;align-items:center;gap:9px;
+}
+.skill-card h3::before{content:"▸"}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{
+  font-family:var(--font-mono);font-size:12.5px;color:var(--ink);
+  padding:7px 13px;border-radius:7px;
+  background:rgba(255,255,255,.03);border:1px solid var(--line);
+  transition:all .25s ease;cursor:default;
+}
+.chip:hover{border-color:var(--amber);color:var(--amber);background:var(--amber-dim);transform:translateY(-2px)}
+
+/* ---------- experience pipeline ---------- */
+.pipeline{position:relative;padding-left:44px}
+.pipeline::before{
+  content:"";position:absolute;left:11px;top:8px;bottom:8px;width:2px;
+  background:var(--line-strong);
+}
+.pipeline .progress-line{
+  position:absolute;left:11px;top:8px;width:2px;height:0;
+  background:linear-gradient(180deg,var(--amber),var(--pass));
+  transition:height .2s linear;
+}
+.job{position:relative;padding-bottom:76px}
+.job:last-child{padding-bottom:0}
+.job .node{
+  position:absolute;left:-44px;top:6px;
+  width:24px;height:24px;border-radius:50%;
+  background:var(--bg);border:2px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:transparent;
+  transition:all .5s ease .3s;
+}
+.job.in .node{border-color:var(--pass);color:var(--pass);background:var(--pass-dim)}
+.job.in .node::after{content:"✓"}
+.job-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 16px;margin-bottom:6px}
+.job-head h3{font-family:var(--font-display);font-weight:700;font-size:24px}
+.job-dates{font-family:var(--font-mono);font-size:12.5px;color:var(--muted)}
+.job-meta{display:flex;gap:10px;flex-wrap:wrap;margin:10px 0 16px}
+.tag{
+  font-family:var(--font-mono);font-size:11.5px;
+  padding:4px 11px;border-radius:100px;
+  border:1px solid var(--line-strong);color:var(--muted);
+}
+.tag.hl{border-color:rgba(255,180,84,.4);color:var(--amber);background:var(--amber-dim)}
+.job-desc{color:var(--muted);max-width:74ch;margin-bottom:16px}
+.job ul{list-style:none;max-width:76ch}
+.job ul li{
+  position:relative;padding-left:26px;margin-bottom:10px;color:var(--muted);font-size:15px;
+}
+.job ul li::before{
+  content:"✓";position:absolute;left:0;top:0;
+  color:var(--pass);font-family:var(--font-mono);font-size:13px;
+}
+.job ul li strong{color:var(--ink);font-weight:500}
+details.more{max-width:76ch}
+details.more summary{
+  list-style:none;cursor:pointer;
+  font-family:var(--font-mono);font-size:12.5px;color:var(--amber);
+  padding:6px 0;display:inline-flex;align-items:center;gap:8px;
+}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::before{content:"+ assert.more()"}
+details.more[open] summary::before{content:"− assert.less()"}
+details.more[open] summary{margin-bottom:10px}
+details.more ul{margin-top:4px}
+
+/* ---------- education ---------- */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.edu-card{
+  background:var(--bg-card);border:1px solid var(--line);border-radius:12px;
+  padding:30px;transition:border-color .3s ease,transform .3s ease;
+}
+.edu-card:hover{border-color:rgba(255,180,84,.35);transform:translateY(-3px)}
+.edu-card .deg{font-family:var(--font-display);font-weight:700;font-size:21px;margin-bottom:6px}
+.edu-card .inst{color:var(--muted);font-size:14.5px;margin-bottom:14px}
+.edu-card .yrs{font-family:var(--font-mono);font-size:12px;color:var(--amber)}
+
+/* ---------- contact ---------- */
+.contact{
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+.contact .feature-kw{justify-content:center}
+.contact .feature-kw::after{display:none}
+.contact h2{
+  font-family:var(--font-display);font-weight:700;
+  font-size:clamp(30px,4.6vw,50px);margin-bottom:18px;
+}
+.contact p{color:var(--muted);max-width:52ch;margin:0 auto 36px}
+.contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.final-assert{
+  margin-top:64px;font-family:var(--font-mono);font-size:12.5px;color:var(--muted);
+}
+.final-assert .t-pass{color:var(--pass)}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:26px 0;text-align:center;
+  font-family:var(--font-mono);font-size:11.5px;color:var(--muted);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .about-grid{grid-template-columns:1fr}
+  .skill-groups{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+  section{padding:80px 0}
+  .hero{padding-top:110px}
+}
+@media (max-width:520px){
+  .suite-name{display:none}
+  .term-body{min-height:0}
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .term-body .line{opacity:1;transform:none;transition:none}
+  .hero-role .cursor,.scroll-hint .bar::after{animation:none}
+  .suite-fill,.pipeline .progress-line{transition:none}
+  *{transition-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<div class="grid-bg" aria-hidden="true"></div>
+
+<!-- ============ SUITE BAR ============ -->
+<header class="suitebar">
+  <div class="suitebar-inner">
+    <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+    <div class="suite-name">suite: <b>suhel-rehman.spec.ts</b></div>
+    <div class="suite-status" id="suiteStatus">0/6 checks passed</div>
+  </div>
+  <div class="suite-track"><div class="suite-fill" id="suiteFill"></div></div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top" style="position:relative">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">QA · AUTOMATION · 3.5+ YRS</div>
+      <h1>Suhel<br>Rehman <span class="accent">M</span></h1>
+      <div class="hero-role" id="typedRole">QA Analyst | Automation Test Engineer<span class="cursor"></span></div>
+      <p class="hero-sub">I catch defects before they reach production — building scalable test automation for retail, banking, and education platforms with Playwright, Selenium, and BDD/Cucumber.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:suhelcareers@gmail.com">✉ &nbsp;Get in touch</a>
+        <a class="btn btn-ghost" href="#experience">▸ &nbsp;View experience</a>
+      </div>
+    </div>
+    <div class="terminal reveal" data-delay="1" aria-label="Animated test-runner terminal">
+      <div class="term-bar">
+        <div class="dots" aria-hidden="true"><span></span><span></span><span></span></div>
+        <span class="title">playwright — zsh</span>
+      </div>
+      <div class="term-body" id="termBody">
+        <div class="line t-cmd"><span class="prompt">$</span> npx playwright test suhel.spec.ts</div>
+        <div class="line t-dim">&nbsp;</div>
+        <div class="line t-dim">Running 5 checks using 1 worker…</div>
+        <div class="line t-dim">&nbsp;</div>
+        <div class="line"><span class="t-pass">✓</span> has 3.5+ years of QA experience <span class="t-time">(412ms)</span></div>
+        <div class="line"><span class="t-pass">✓</span> automates with Playwright + BDD/Cucumber <span class="t-time">(233ms)</span></div>
+        <div class="line"><span class="t-pass">✓</span> ships reliable releases across 3 domains <span class="t-time">(301ms)</span></div>
+        <div class="line"><span class="t-pass">✓</span> catches defects before production <span class="t-time">(198ms)</span></div>
+        <div class="line"><span class="t-pass">✓</span> is open to new opportunities <span class="t-time">(87ms)</span></div>
+        <div class="line t-summary">&nbsp;&nbsp;5 passed (1.2s)</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span>scroll</span><div class="bar"></div></div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap">
+    <div class="feature-head reveal" data-check>
+      <div class="feature-kw">Feature: About</div>
+      <div class="feature-title">Structured. Logical. Quality-obsessed.<span class="check-chip" aria-hidden="true"></span></div>
+    </div>
+    <div class="about-grid">
+      <div class="gherkin reveal" data-delay="1">
+        <span class="gh-line"><span class="gh-kw">Scenario:</span> A release is on the line</span>
+        <span class="gh-indent"><span class="gh-kw">Given</span> 3.5 years across retail, banking &amp; education</span>
+        <span class="gh-indent"><span class="gh-kw">And</span> a scalable automation-first mindset</span>
+        <span class="gh-indent"><span class="gh-kw">When</span> defects threaten production</span>
+        <span class="gh-indent"><span class="gh-kw">Then</span> they get caught — every time</span>
+        <span class="gh-indent"><span class="gh-kw">And</span> the release ships smoothly ✓</span>
+      </div>
+      <div class="about-text reveal" data-delay="2">
+        <p>Quality-focused <strong>QA Analyst / Automation Test Engineer</strong> driving efficient test automation practices across agile teams. Known for a structured approach to testing, strong logical thinking, and a passion for catching defects before they reach production.</p>
+        <p>Experienced in aligning test strategies with business goals, optimizing test execution, and supporting smooth releases — bringing a <strong>continuous improvement mindset</strong> and a collaborative spirit to every project.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="num">3.5+</div><div class="lbl">YEARS EXPERIENCE</div></div>
+          <div class="stat"><div class="num">3</div><div class="lbl">DOMAINS</div></div>
+          <div class="stat"><div class="num">18+</div><div class="lbl">TOOLS &amp; SKILLS</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="feature-head reveal" data-check>
+      <div class="feature-kw">Feature: Skills</div>
+      <div class="feature-title">The toolkit<span class="check-chip" aria-hidden="true"></span></div>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-card reveal" data-delay="1">
+        <h3>Automation</h3>
+        <div class="chips">
+          <span class="chip">Playwright</span>
+          <span class="chip">Java + Selenium</span>
+          <span class="chip">Cypress</span>
+          <span class="chip">Appium</span>
+          <span class="chip">BDD / Cucumber</span>
+          <span class="chip">POM &amp; JUnit</span>
+          <span class="chip">TestNG</span>
+          <span class="chip">JavaScript</span>
+        </div>
+      </div>
+      <div class="skill-card reveal" data-delay="2">
+        <h3>API &amp; Data</h3>
+        <div class="chips">
+          <span class="chip">Postman</span>
+          <span class="chip">Rest Assured</span>
+          <span class="chip">SQL</span>
+          <span class="chip">Data-Driven Testing</span>
+        </div>
+      </div>
+      <div class="skill-card reveal" data-delay="3">
+        <h3>Process &amp; CI/CD</h3>
+        <div class="chips">
+          <span class="chip">Jenkins (CI/CD)</span>
+          <span class="chip">GitHub</span>
+          <span class="chip">Jira</span>
+          <span class="chip">Control-M</span>
+          <span class="chip">STLC / SDLC</span>
+          <span class="chip">Regression Testing</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience">
+  <div class="wrap">
+    <div class="feature-head reveal" data-check>
+      <div class="feature-kw">Feature: Work Experience</div>
+      <div class="feature-title">The pipeline so far<span class="check-chip" aria-hidden="true"></span></div>
+    </div>
+
+    <div class="pipeline" id="pipeline">
+      <div class="progress-line" id="pipelineFill"></div>
+
+      <!-- S5 Stratos -->
+      <article class="job reveal" data-check>
+        <div class="node" aria-hidden="true"></div>
+        <div class="job-head">
+          <h3>S5 Stratos</h3>
+          <span class="job-dates">Feb 2026 — Present</span>
+        </div>
+        <div class="job-meta">
+          <span class="tag hl">Retail</span>
+          <span class="tag">Playwright</span>
+          <span class="tag">BDD / Cucumber</span>
+          <span class="tag">POM</span>
+        </div>
+        <p class="job-desc">Retail merchandise planning platform used by multiple retail clients. Ensuring release quality through structured regression testing while building out a scalable Playwright-based automation framework.</p>
+        <ul>
+          <li>Executing <strong>end-to-end regression testing</strong> for the retail merchandise planning platform across client environments.</li>
+          <li>Developing and maintaining automated UI test scripts using <strong>Playwright with BDD/Cucumber</strong> and Page Object Model design.</li>
+          <li>Creating and enhancing <strong>functional, regression, and integration test cases</strong> covering core retail planning modules.</li>
+        </ul>
+        <details class="more">
+          <summary></summary>
+          <ul>
+            <li>Reviewing product requirements and user stories to design clear, complete test scenarios and acceptance criteria.</li>
+            <li>Reporting and tracking defects in JIRA with detailed reproduction steps; collaborating with engineering on root-cause analysis and fix verification.</li>
+            <li>Collaborating with Product and Engineering teams to validate testability, identify risks, and ensure full feature coverage.</li>
+            <li>Continuously improving QA processes, automation coverage, and testing efficiency; communicating quality metrics to stakeholders.</li>
+          </ul>
+        </details>
+      </article>
+
+      <!-- Tech Mahindra / AltBank -->
+      <article class="job reveal" data-check>
+        <div class="node" aria-hidden="true"></div>
+        <div class="job-head">
+          <h3>Tech Mahindra <span style="font-family:var(--font-mono);font-size:13px;color:var(--muted);font-weight:400">/ AltBank Platform</span></h3>
+          <span class="job-dates">Aug 2024 — Jan 2026</span>
+        </div>
+        <div class="job-meta">
+          <span class="tag hl">Banking</span>
+          <span class="tag">Selenium + Java</span>
+          <span class="tag">Appium</span>
+          <span class="tag">Rest Assured</span>
+          <span class="tag">Jenkins</span>
+        </div>
+        <p class="job-desc">End-to-end automation of web, mobile, and API services for a banking platform covering customer onboarding, fund transfers, loan processing, bill payments, and credit card management.</p>
+        <ul>
+          <li>Developed automation scripts using <strong>Selenium + Java</strong> for Web UI, <strong>Appium</strong> for mobile apps, and <strong>Rest Assured</strong> for API validation.</li>
+          <li>Designed a <strong>BDD framework with Cucumber</strong> integrated with TestNG/JUnit; implemented Playwright and Cypress for modern web apps, improving reliability, cross-browser coverage, and speed.</li>
+          <li>Automated critical business workflows — <strong>fund transfers, loan approvals, account statements</strong>, and transaction history validation.</li>
+        </ul>
+        <details class="more">
+          <summary></summary>
+          <ul>
+            <li>Involved in requirement analysis, test planning, and test case design for banking web, API, and mobile applications.</li>
+            <li>Conducted API testing with Postman &amp; Rest Assured — validating status codes, JSON/XML responses, headers, and database integration.</li>
+            <li>Implemented data-driven testing with external data sources (Excel, SQL DB) for robust coverage.</li>
+            <li>Configured Maven for build management and integrated the automation suite with the Jenkins CI/CD pipeline for nightly builds and regression runs.</li>
+            <li>Collaborated in Agile ceremonies (stand-ups, sprint planning, defect triage) with developers, BAs, and stakeholders; reported and tracked defects in JIRA.</li>
+            <li>Generated Extent Reports for execution status; provided knowledge transfer and training to new team members on the automation framework.</li>
+          </ul>
+        </details>
+      </article>
+
+      <!-- Focus Edumatics / SplashLearn -->
+      <article class="job reveal" data-check>
+        <div class="node" aria-hidden="true"></div>
+        <div class="job-head">
+          <h3>Focus Edumatics <span style="font-family:var(--font-mono);font-size:13px;color:var(--muted);font-weight:400">/ SplashLearn LMS</span></h3>
+          <span class="job-dates">Sep 2022 — Jul 2024</span>
+        </div>
+        <div class="job-meta">
+          <span class="tag hl">Education</span>
+          <span class="tag">Selenium WebDriver</span>
+          <span class="tag">TestNG</span>
+          <span class="tag">SQL / JDBC</span>
+          <span class="tag">Git</span>
+        </div>
+        <p class="job-desc">Web-based Learning Management System supporting course enrollment, assignments, online exams, grade tracking, and student–instructor communication.</p>
+        <ul>
+          <li>Designed and executed web automation with <strong>Java, Selenium WebDriver, TestNG, and POM</strong> — validating login, course navigation, assignment upload, exam submission, and grade tracking.</li>
+          <li>Performed <strong>functional, UI, usability, integration, compatibility, and system testing</strong>; logged defects in Jira with full reproduction steps and severity classification.</li>
+          <li>Executed <strong>backend validation with SQL</strong> for enrollment, assignments, exam results, and notifications — including UI-to-database checks via JDBC-based automation.</li>
+        </ul>
+        <details class="more">
+          <summary></summary>
+          <ul>
+            <li>Translated functional and business requirements for key LMS modules into comprehensive test scenarios and test cases with complete coverage.</li>
+            <li>Collaborated with developers, product owners, and BAs during sprint cycles; participated in defect triage, clarified requirements, and verified bug fixes.</li>
+            <li>Used Git for version control — feature branches, code reviews, merge-conflict resolution, and consistent standards across the automation framework.</li>
+            <li>Prepared daily and weekly execution reports, defect summaries, sprint metrics, and environment readiness updates for the QA lead and Scrum Master.</li>
+          </ul>
+        </details>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education">
+  <div class="wrap">
+    <div class="feature-head reveal" data-check>
+      <div class="feature-kw">Feature: Education</div>
+      <div class="feature-title">The foundation<span class="check-chip" aria-hidden="true"></span></div>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal" data-delay="1">
+        <div class="deg">MSc — Computer Science</div>
+        <div class="inst">Shri Nehru Maha Vidyalaya College of Arts &amp; Sciences</div>
+        <div class="yrs">2022 — 2024</div>
+      </div>
+      <div class="edu-card reveal" data-delay="2">
+        <div class="deg">BSc — Computer Technology</div>
+        <div class="inst">Shri Nehru Maha Vidyalaya College of Arts &amp; Sciences</div>
+        <div class="yrs">2019 — 2022</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="feature-head reveal" data-check style="margin-bottom:0">
+      <div class="feature-kw" style="margin-bottom:22px">Feature: Contact<span class="check-chip" aria-hidden="true"></span></div>
+      <h2>Let's ship something<br>that <span style="color:var(--amber)">doesn't break.</span></h2>
+    </div>
+    <p class="reveal" data-delay="1">Open to QA and automation opportunities. Based in Coimbatore — happy to talk about testing strategy, frameworks, or your next release.</p>
+    <div class="contact-links reveal" data-delay="2">
+      <a class="btn btn-primary" href="mailto:suhelcareers@gmail.com">✉ &nbsp;suhelcareers@gmail.com</a>
+      <a class="btn btn-ghost" href="tel:+919363936983">✆ &nbsp;+91 93639 36983</a>
+      <span class="btn btn-ghost" style="cursor:default">📍 &nbsp;Coimbatore, India</span>
+    </div>
+    <div class="final-assert reveal" data-delay="3">
+      expect(collaboration).toBe(<span style="color:var(--amber)">"successful"</span>) <span class="t-pass">— ✓ passed</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Suhel Rehman M · built with an automation-first mindset · all checks green
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- terminal typing ---------- */
+  var termLines = document.querySelectorAll('#termBody .line');
+  if (reduced){
+    termLines.forEach(function(l){ l.classList.add('show'); });
+  } else {
+    var delays = [300, 700, 1000, 1400, 1750, 2100, 2450, 2800, 3150, 3600];
+    termLines.forEach(function(l, i){
+      setTimeout(function(){ l.classList.add('show'); }, delays[i] || (300 + i * 350));
+    });
+  }
+
+  /* ---------- suite progress ---------- */
+  var checks = document.querySelectorAll('[data-check]');
+  var total = checks.length;
+  var passed = 0;
+  var seen = new WeakSet();
+  var statusEl = document.getElementById('suiteStatus');
+  var fillEl = document.getElementById('suiteFill');
+
+  function updateSuite(){
+    statusEl.textContent = passed + '/' + total + ' checks passed';
+    fillEl.style.width = (passed / total * 100) + '%';
+    if (passed === total){ statusEl.textContent = total + '/' + total + ' passed ✓'; }
+  }
+  updateSuite();
+
+  /* ---------- reveal on scroll ---------- */
+  var revealEls = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          e.target.classList.add('in');
+          if (e.target.hasAttribute('data-check') && !seen.has(e.target)){
+            seen.add(e.target);
+            passed++;
+            updateSuite();
+          }
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+    passed = total; updateSuite();
+  }
+
+  /* ---------- pipeline progress line ---------- */
+  var pipeline = document.getElementById('pipeline');
+  var pipelineFill = document.getElementById('pipelineFill');
+  function drawPipeline(){
+    if (!pipeline) return;
+    var rect = pipeline.getBoundingClientRect();
+    var vh = window.innerHeight;
+    var progress = (vh * 0.72 - rect.top) / rect.height;
+    progress = Math.max(0, Math.min(1, progress));
+    pipelineFill.style.height = (progress * 100) + '%';
+  }
+  if (!reduced){
+    window.addEventListener('scroll', drawPipeline, { passive:true });
+    window.addEventListener('resize', drawPipeline);
+    drawPipeline();
+  } else {
+    pipelineFill.style.height = '100%';
+  }
+})();
+</script>
+</body>
+</html>
