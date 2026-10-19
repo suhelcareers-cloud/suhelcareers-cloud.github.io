@@ -5,9 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Suhel Rehman M — QA Automation Engineer</title>
 <meta name="description" content="Suhel Rehman M is a QA Automation Engineer from Coimbatore, India with 4 years of experience in Playwright + JavaScript and Selenium + Java across retail, banking and education platforms.">
+<link rel="canonical" href="https://suhelcareers-cloud.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232B44FF'/%3E%3Cpath d='M18 33l9 9 19-21' fill='none' stroke='%23fff' stroke-width='7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<meta name="theme-color" content="#101010">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://suhelcareers-cloud.github.io/">
+<meta property="og:title" content="Suhel Rehman M — QA Automation Engineer">
+<meta property="og:description" content="4 years testing web, mobile and API applications with Playwright + JavaScript and Selenium + Java across retail, banking and education.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Suhel Rehman M", "jobTitle": "QA Automation Engineer", "email": "mailto:suhelcareers@gmail.com", "url": "https://suhelcareers-cloud.github.io/", "address": {"@type": "PostalAddress", "addressLocality": "Coimbatore", "addressRegion": "Tamil Nadu", "addressCountry": "IN"}, "sameAs": ["https://www.linkedin.com/in/suhel-rehman-m", "https://github.com/suhelcareers-cloud"], "knowsAbout": ["Playwright", "JavaScript", "Selenium WebDriver", "Java", "Cucumber (BDD)", "Appium", "Rest Assured", "Postman", "Jenkins", "SQL"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#F2F1ED;
@@ -18,6 +27,9 @@
   --font-display:'Anton',impact,sans-serif;
   --font-serif:'Instrument Serif',georgia,serif;
   --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,'SFMono-Regular',menlo,consolas,monospace;
+  --pass:#3FD68A;
+  --kw:#93A0FF;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -128,7 +140,7 @@ body.ready .hline > span{transform:translateY(0)}
 }
 .badge svg{width:100%;height:100%;animation:spin 14s linear infinite}
 .badge text{
-  font-family:var(--font-body);font-size:10.2px;letter-spacing:.32em;
+  font-family:var(--font-body);font-size:9.6px;
   text-transform:uppercase;fill:var(--ink);font-weight:600;
 }
 .badge .core{
@@ -251,7 +263,7 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
 .work-body ul li{
   padding:13px 0;border-top:1px solid var(--line);font-size:14.5px;display:flex;gap:14px;
 }
-.work-body ul li::before{content:"→";color:var(--accent);flex-shrink:0}
+.work-body ul li::before{content:"✓";color:var(--accent);flex-shrink:0;font-weight:600}
 @media (max-width:760px){
   .work-head{grid-template-columns:auto 1fr auto}
   .work-head .tags{display:none}
@@ -347,7 +359,7 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
   font-size:13px;color:rgba(242,241,237,.7);
 }
 .cta-links .col{display:flex;flex-direction:column;gap:9px}
-.cta-links a{position:relative;width:fit-content}
+.cta-links a,.cta-links button{position:relative;width:fit-content}
 .cta-links a::after{
   content:"";position:absolute;left:0;bottom:-3px;width:100%;height:1px;background:currentColor;
   transform:scaleX(0);transform-origin:right;transition:transform .35s ease;
@@ -358,6 +370,90 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
   color:rgba(242,241,237,.4);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
 }
 
+
+/* ================= UTIL ================= */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* ================= HERO ACTIONS ================= */
+.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.pill{
+  display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:100px;
+  border:1px solid var(--ink);font-size:12.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  transition:background .3s ease,color .3s ease,border-color .3s ease;
+}
+.pill:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.pill-solid{background:var(--ink);color:var(--bg)}
+.pill .ic{font-size:14px;line-height:1}
+
+/* ================= PROOF: LIVE SPEC RUN ================= */
+.spec{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,80px)}
+.spec-intro .stick{position:sticky;top:110px}
+.spec-intro h2{font-weight:400;line-height:.92}
+.spec-intro h2 span{display:block}
+.spec-intro .h-caps{font-size:clamp(54px,6.6vw,96px)}
+.spec-intro .h-serif{font-size:clamp(52px,6.2vw,90px);line-height:1.05}
+.spec-intro p{color:var(--muted);max-width:38ch;margin-top:26px;font-size:15.5px}
+.spec-intro p b{color:var(--ink);font-weight:600}
+
+.term{
+  background:var(--ink);color:var(--bg);border-radius:12px;overflow:hidden;
+  font-family:var(--font-mono);font-size:13.5px;line-height:1.75;
+  box-shadow:0 40px 80px -40px rgba(43,68,255,.45);
+}
+.term-bar{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:12px 14px 12px 20px;border-bottom:1px solid rgba(242,241,237,.12);
+}
+.term-file{font-size:12.5px;color:rgba(242,241,237,.55);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.term-run{
+  font:500 12.5px/1 var(--font-mono);color:var(--bg);background:transparent;cursor:pointer;
+  border:1px solid rgba(242,241,237,.3);border-radius:100px;padding:8px 16px;flex-shrink:0;
+  display:inline-flex;align-items:center;gap:8px;transition:background .25s ease,color .25s ease,border-color .25s ease;
+}
+.term-run::before{content:"";width:0;height:0;border-style:solid;border-width:4.5px 0 4.5px 7px;border-color:transparent transparent transparent currentColor}
+.term-run:hover:not([disabled]){background:var(--pass);border-color:var(--pass);color:var(--ink)}
+.term-run[disabled]{opacity:.5;cursor:default}
+.term-run[disabled]::before{border:1.5px solid currentColor;border-right-color:transparent;border-radius:50%;width:8px;height:8px;animation:spin .7s linear infinite}
+.term-body{padding:20px clamp(14px,2.2vw,26px) 24px clamp(8px,1.4vw,16px)}
+.term-cmd{padding-left:28px;color:rgba(242,241,237,.45);margin-bottom:16px}
+.term-cmd b{color:var(--bg);font-weight:500}
+.ln{display:grid;grid-template-columns:28px minmax(0,1fr);transition:opacity .25s ease}
+.ln .st{display:flex;justify-content:center;padding-top:.05em}
+.ln .tx{padding-left:calc(var(--i,0) * 2ch);white-space:pre-wrap}
+.ln.gap{height:.9em}
+.ln .k{color:var(--kw)}
+.ln .kb{color:var(--bg);font-weight:600}
+.ln .dim,.ln .tg{color:rgba(242,241,237,.45)}
+.term.armed .ln{opacity:.28}
+.term.armed .ln.lit,.term.armed .ln.run,.term.armed .ln.ok{opacity:1}
+.ln.run .st::before{
+  content:"";width:9px;height:9px;margin-top:.55em;border:1.5px solid var(--kw);border-right-color:transparent;
+  border-radius:50%;animation:spin .6s linear infinite;
+}
+.ln.ok .st::before{content:"✓";color:var(--pass);font-weight:600}
+.term-sum{margin-top:20px;padding:16px 0 0 28px;border-top:1px dashed rgba(242,241,237,.16);color:rgba(242,241,237,.75)}
+.term-sum .p{color:var(--pass)}
+.term-sum .t{color:rgba(242,241,237,.45)}
+.term.armed .term-sum{visibility:hidden}
+.term.armed .term-sum.show{visibility:visible}
+@media (max-width:860px){
+  .spec{grid-template-columns:1fr}
+  .spec-intro .stick{position:static}
+  .term{font-size:12.5px;line-height:1.7}
+}
+
+/* ================= WORK STACK ================= */
+.work-body .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:20px}
+.work-body .stack span{
+  font-size:12px;padding:5px 11px;border-radius:100px;color:var(--ink);
+  background:rgba(16,16,16,.06);
+}
+
+/* ================= CTA EXTRAS ================= */
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.cta-copy{background:transparent;color:inherit;font-family:inherit;cursor:pointer}
+@media (max-width:420px){nav ul li.opt{display:none}}
+
 /* ================= REDUCED MOTION ================= */
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -365,9 +461,11 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
   .hline > span{transform:none;transition:none}
   .reveal{opacity:1;transform:none;transition:none}
   .marquee .track,.chip-row .track,.badge svg{animation:none}
+  .ln.run .st::before{animation:none}
   *{transition-duration:.01ms !important}
 }
 </style>
+<noscript><style>.loader,.cursor{display:none}.reveal{opacity:1;transform:none}.hline>span{transform:none}.term-run{display:none}</style></noscript>
 </head>
 <body>
 
@@ -386,10 +484,10 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
 <nav>
   <a href="#top" class="logo" data-hover>SR<sup>©</sup></a>
   <ul>
-    <li><a href="#works" data-hover>Works</a></li>
     <li><a href="#about" data-hover>About</a></li>
-    <li><a href="#experience" data-hover>Experience</a></li>
-    <li><a href="#education" data-hover>Education</a></li>
+    <li><a href="#proof" data-hover>Proof</a></li>
+    <li><a href="#works" data-hover>Work</a></li>
+    <li class="opt"><a href="#skills" data-hover>Skills</a></li>
     <li><a href="#contact" data-hover>Contact</a></li>
   </ul>
 </nav>
@@ -405,12 +503,18 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
     <span class="hline"><span class="h-serif">product</span></span>
   </h1>
   <div class="hero-foot">
-    <p class="intro"><b>Suhel Rehman M</b> — QA automation engineer from Coimbatore with <b>4 years</b> of testing web, mobile and API applications across retail, banking &amp; education.</p>
+    <div>
+      <p class="intro"><b>Suhel Rehman M</b> — QA automation engineer from Coimbatore with <b>4 years</b> of testing web, mobile and API applications across retail, banking &amp; education.</p>
+      <div class="hero-actions">
+        <a class="pill pill-solid" href="Suhel_Rehman_M_Resume.pdf" download data-hover><span class="ic" aria-hidden="true">↓</span>Download résumé</a>
+        <a class="pill" href="mailto:suhelcareers@gmail.com" data-hover>Email me</a>
+      </div>
+    </div>
   </div>
   <div class="badge" aria-hidden="true">
     <svg viewBox="0 0 100 100">
       <defs><path id="circ" d="M50,50 m-38,0 a38,38 0 1,1 76,0 a38,38 0 1,1 -76,0"/></defs>
-      <text><textPath href="#circ">open to work • qa automation • open to work •</textPath></text>
+      <text textLength="236" lengthAdjust="spacing"><textPath href="#circ" textLength="236" lengthAdjust="spacing">open to work • qa automation • </textPath></text>
     </svg>
     <span class="core">✓</span>
   </div>
@@ -444,9 +548,67 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
   </div>
 </section>
 
+
+<!-- PROOF: résumé as a runnable Cucumber feature -->
+<section id="proof">
+  <p class="sec-label">02 — Proof</p>
+  <div class="spec">
+    <div class="spec-intro">
+      <div class="stick">
+        <h2 class="reveal"><span class="h-caps">Don’t take</span><span class="h-caps h-outline">my word</span><span class="h-serif">for it.</span></h2>
+        <p class="reveal">A résumé is a list of claims. Here are mine, written the way I’d test anything else: as <b>Cucumber scenarios</b> that run and pass.</p>
+      </div>
+    </div>
+    <div class="term reveal" id="term">
+      <div class="term-bar">
+        <span class="term-file">features/hire-suhel.feature</span>
+        <button class="term-run" id="termRun" type="button" data-hover>Run again</button>
+      </div>
+      <div class="term-body">
+        <div class="term-cmd" aria-hidden="true">$ <b>npx cucumber-js features/hire-suhel.feature</b></div>
+        <div class="gherkin">
+          <div class="ln" data-k="tag" style="--i:0"><span class="st" aria-hidden="true"></span><span class="tx"><span class="tg">@qa @automation</span></span></div>
+          <div class="ln" data-k="feat" style="--i:0"><span class="st" aria-hidden="true"></span><span class="tx"><span class="kb">Feature:</span> Hiring a QA automation engineer</span></div>
+          <div class="ln" data-k="desc" style="--i:1"><span class="st" aria-hidden="true"></span><span class="tx"><span class="dim">In order to ship releases without regressions</span></span></div>
+          <div class="ln" data-k="desc" style="--i:1"><span class="st" aria-hidden="true"></span><span class="tx"><span class="dim">As a product team</span></span></div>
+          <div class="ln" data-k="desc" style="--i:1"><span class="st" aria-hidden="true"></span><span class="tx"><span class="dim">I want someone who automates web, mobile and API testing</span></span></div>
+          <div class="ln gap" aria-hidden="true"></div>
+          <div class="ln" data-k="scn" style="--i:1"><span class="st" aria-hidden="true"></span><span class="tx"><span class="kb">Scenario:</span> Automating a multi-client retail platform</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">Given</span> a merchandise planning platform used by several retail clients</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">When</span> Suhel builds the UI suite in Playwright and JavaScript</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">Then</span> every feature reads as a Cucumber scenario backed by Page Objects</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">And</span> high-risk planning modules are regression-tested first</span></div>
+          <div class="ln gap" aria-hidden="true"></div>
+          <div class="ln" data-k="scn" style="--i:1"><span class="st" aria-hidden="true"></span><span class="tx"><span class="kb">Scenario:</span> Testing a digital bank across every layer</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">Given</span> web, mobile and REST API layers</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">When</span> Selenium with Java, Appium and Rest Assured cover them end to end</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">Then</span> fund transfers, loan approvals and statements are verified</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">And</span> Jenkins runs the full regression every night</span></div>
+          <div class="ln gap" aria-hidden="true"></div>
+          <div class="ln" data-k="scn" style="--i:1"><span class="st" aria-hidden="true"></span><span class="tx"><span class="kb">Scenario:</span> Checking the data behind the screen</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">Given</span> enrollments and exam results stored in the database</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">When</span> the UI is compared with SQL queries through JDBC</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">Then</span> what learners see matches what the system saved</span></div>
+          <div class="ln gap" aria-hidden="true"></div>
+          <div class="ln" data-k="scn" style="--i:1"><span class="st" aria-hidden="true"></span><span class="tx"><span class="kb">Scenario:</span> Turning a failure into a fix</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">Given</span> a defect found during the sprint</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">When</span> it is logged in Jira with clear reproduction steps</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">Then</span> the root cause is traced together with the developer</span></div>
+          <div class="ln" data-k="step" style="--i:2"><span class="st" aria-hidden="true"></span><span class="tx"><span class="k">And</span> the fix is verified before release</span></div>
+        </div>
+        <div class="term-sum show" id="termSum" role="status">
+          <div>4 scenarios (<span class="p">4 passed</span>)</div>
+          <div>15 steps (<span class="p">15 passed</span>)</div>
+          <div class="t" id="termTime">0m03.412s</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CAPABILITIES -->
 <section id="capabilities">
-  <p class="sec-label">02 — What I Do</p>
+  <p class="sec-label">03 — What I Do</p>
   <div class="cap reveal">
     <span class="idx">(a)</span>
     <span class="cap-name">UI Automation</span>
@@ -489,7 +651,7 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
 
 <!-- WORKS -->
 <section id="works">
-  <p class="sec-label">03 — Selected Works</p>
+  <p class="sec-label">04 — Selected Works</p>
 
   <article class="work reveal">
     <button class="work-head" data-hover aria-expanded="false">
@@ -503,6 +665,7 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
         <div class="desc">
           <span class="dom">Retail — Feb 2026 → Present</span>
           <p>A retail merchandise planning platform used by multiple retail clients. I build and maintain its Playwright + JavaScript UI automation framework and own end-to-end regression for every release. Client: S5 Stratos — payroll: Remunance.</p>
+          <div class="stack" aria-label="Tech stack"><span>Playwright</span><span>JavaScript</span><span>Cucumber (BDD)</span><span>POM</span><span>Jira</span></div>
         </div>
         <ul>
           <li>Build and maintain a Playwright + JavaScript UI automation framework using Cucumber (BDD) and the Page Object Model.</li>
@@ -528,6 +691,7 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
         <div class="desc">
           <span class="dom">Banking — Aug 2024 → Jan 2026</span>
           <p>AltBank digital banking platform — end-to-end automation across web, mobile and API layers covering customer onboarding, fund transfers, loan processing, bill payments and credit card management. Client: Tech Mahindra — payroll: AU Tech.</p>
+          <div class="stack" aria-label="Tech stack"><span>Selenium</span><span>Java</span><span>Appium</span><span>Rest Assured</span><span>Cucumber</span><span>TestNG</span><span>Maven</span><span>Jenkins</span></div>
         </div>
         <ul>
           <li>Developed web UI automation with Selenium WebDriver and Java and mobile tests with Appium, inside a Cucumber (BDD) framework integrated with TestNG.</li>
@@ -554,6 +718,7 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
         <div class="desc">
           <span class="dom">Education — Sep 2022 → Jul 2024</span>
           <p>An e-learning &amp; assessment platform covering user management, course enrollment, study materials, assignments, online assessments and performance tracking. QA Analyst at Focus Edumatics Pvt Ltd, Coimbatore.</p>
+          <div class="stack" aria-label="Tech stack"><span>Selenium</span><span>Java</span><span>TestNG</span><span>POM</span><span>SQL</span><span>JDBC</span><span>Git</span><span>Jira</span></div>
         </div>
         <ul>
           <li>Analyzed requirements for core e-learning modules and converted them into test scenarios and test cases.</li>
@@ -570,13 +735,14 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
 
 <!-- SKILLS -->
 <div class="skills-wrap" id="skills">
-  <p class="sec-label">04 — My Playground</p>
+  <p class="sec-label">05 — My Playground</p>
   <div class="chip-row" aria-hidden="true">
     <div class="track">
       <span>Playwright</span><span>JavaScript (Node.js)</span><span>Cucumber (BDD)</span><span>Selenium WebDriver</span><span>Java</span><span>Page Object Model</span><span>Appium</span><span>TestNG / JUnit</span><span>Data-Driven Testing</span><span>Cross-Browser Testing</span>
       <span>Playwright</span><span>JavaScript (Node.js)</span><span>Cucumber (BDD)</span><span>Selenium WebDriver</span><span>Java</span><span>Page Object Model</span><span>Appium</span><span>TestNG / JUnit</span><span>Data-Driven Testing</span><span>Cross-Browser Testing</span>
     </div>
   </div>
+  <ul class="sr-only"><li>Playwright</li><li>JavaScript (Node.js)</li><li>Cucumber (BDD)</li><li>Selenium WebDriver</li><li>Java</li><li>Page Object Model</li><li>Appium</li><li>TestNG / JUnit</li><li>Data-Driven Testing</li><li>Cross-Browser Testing</li><li>Rest Assured</li><li>Postman</li><li>SQL / JDBC</li><li>Jenkins CI/CD</li><li>Maven</li><li>Git / GitHub</li><li>Jira</li><li>Extent Reports</li><li>Regression Testing</li><li>Agile / Scrum</li><li>STLC / SDLC</li></ul>
   <div class="chip-row rev" aria-hidden="true">
     <div class="track">
       <span>Rest Assured</span><span>Postman</span><span>SQL / JDBC</span><span>Jenkins CI/CD</span><span>Maven</span><span>Git / GitHub</span><span>Jira</span><span>Extent Reports</span><span>Regression Testing</span><span>Agile / Scrum</span><span>STLC / SDLC</span>
@@ -587,7 +753,7 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <p class="sec-label">05 — Work Experience</p>
+  <p class="sec-label">06 — Work Experience</p>
   <div class="tl-row reveal">
     <span class="yr">2026 →</span>
     <span class="what">S5 Stratos</span>
@@ -610,7 +776,7 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
 
 <!-- EDUCATION -->
 <section id="education">
-  <p class="sec-label">06 — Education</p>
+  <p class="sec-label">07 — Education</p>
   <div class="edu reveal">
     <span class="abbr">MSc</span>
     <div>
@@ -638,7 +804,10 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
     <span class="hline"><span class="h-caps">Together</span></span>
   </h2>
   <p class="paren">( but without the bugs )</p>
-  <a class="cta-btn" href="mailto:suhelcareers@gmail.com" data-hover>Contact me 🤙</a>
+  <div class="cta-actions">
+    <a class="cta-btn" href="mailto:suhelcareers@gmail.com" data-hover>Contact me 🤙</a>
+    <button class="cta-btn cta-copy" id="copyEmail" type="button" data-email="suhelcareers@gmail.com" data-hover>Copy email</button>
+  </div>
 
   <div class="cta-links">
     <div class="col">
@@ -648,6 +817,7 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
     <div class="col">
       <a href="https://github.com/suhelcareers-cloud" target="_blank" rel="noopener" data-hover>GitHub ↗</a>
       <a href="https://www.linkedin.com/in/suhel-rehman-m" target="_blank" rel="noopener" data-hover>LinkedIn ↗</a>
+      <a href="Suhel_Rehman_M_Resume.pdf" download data-hover>Résumé (PDF) ↓</a>
     </div>
     <div class="col">
       <span>Coimbatore, Tamil Nadu, India</span>
@@ -675,10 +845,11 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
     var iv = setInterval(function(){
       n += Math.floor(Math.random()*14)+6;
       if (n >= 100){ n = 100; clearInterval(iv);
+        setTimeout(function(){ countEl.textContent = '✓ all checks passed'; }, 1);
         setTimeout(function(){
           loader.classList.add('done');
           document.body.classList.add('ready');
-        }, 200);
+        }, 520);
       }
       countEl.textContent = n + '%';
     }, 70);
@@ -727,21 +898,93 @@ section{padding:clamp(80px,12vh,150px) clamp(20px,4vw,48px)}
     revealEls.forEach(function(el){ el.classList.add('in'); });
   }
 
-  /* works accordions */
-  document.querySelectorAll('.work').forEach(function(work){
+  /* works accordions (first project open by default) */
+  document.querySelectorAll('.work').forEach(function(work, i){
     var head = work.querySelector('.work-head');
     var body = work.querySelector('.work-body');
-    head.addEventListener('click', function(){
-      var open = work.classList.toggle('open');
+    function setOpen(open, instant){
+      work.classList.toggle('open', open);
       head.setAttribute('aria-expanded', open ? 'true' : 'false');
-      body.style.maxHeight = open ? body.scrollHeight + 'px' : '0px';
+      if (instant){ body.style.maxHeight = open ? 'none' : '0px'; return; }
+      body.style.maxHeight = body.scrollHeight + 'px';
+      if (!open){ void body.offsetHeight; body.style.maxHeight = '0px'; }
+    }
+    body.addEventListener('transitionend', function(){
+      if (work.classList.contains('open')) body.style.maxHeight = 'none';
     });
+    head.addEventListener('click', function(){ setOpen(!work.classList.contains('open'), reduced); });
+    if (i === 0) setOpen(true, true);
   });
-  window.addEventListener('resize', function(){
-    document.querySelectorAll('.work.open .work-body').forEach(function(b){
-      b.style.maxHeight = b.scrollHeight + 'px';
+
+  /* proof: run the feature file */
+  var term = document.getElementById('term');
+  if (term){
+    var lines = [].slice.call(term.querySelectorAll('.ln[data-k]'));
+    var runBtn = document.getElementById('termRun');
+    var sum = document.getElementById('termSum');
+    var timeEl = document.getElementById('termTime');
+    var timers = [], running = false;
+    function fmt(ms){ return '0m' + ('0' + (ms/1000).toFixed(3)).slice(-6) + 's'; }
+    function at(fn, t){ timers.push(setTimeout(fn, t)); }
+    function settle(ms){
+      lines.forEach(function(l){
+        l.classList.remove('run');
+        var k = l.getAttribute('data-k');
+        l.classList.add(k === 'step' || k === 'scn' || k === 'feat' ? 'ok' : 'lit');
+      });
+      timeEl.textContent = fmt(ms); sum.classList.add('show');
+      runBtn.disabled = false; runBtn.textContent = 'Run again'; running = false;
+    }
+    function run(){
+      if (running) return;
+      running = true; timers.forEach(clearTimeout); timers = [];
+      term.classList.add('armed'); sum.classList.remove('show');
+      lines.forEach(function(l){ l.classList.remove('run','ok','lit'); });
+      runBtn.disabled = true; runBtn.textContent = 'Running';
+      if (reduced){ settle(3412); return; }
+      var t0 = performance.now(), t = 180, openScn = null;
+      function closeScn(){ if (openScn){ var s = openScn; at(function(){ s.classList.add('ok'); }, t); openScn = null; } }
+      lines.forEach(function(l){
+        var k = l.getAttribute('data-k');
+        if (k === 'step'){
+          at(function(){ l.classList.add('run'); }, t);
+          t += 120 + Math.round(Math.random() * 110);
+          at(function(){ l.classList.remove('run'); l.classList.add('ok'); }, t);
+          t += 28;
+        } else if (k === 'scn'){
+          closeScn(); t += 90; openScn = l;
+          at(function(){ l.classList.add('lit'); }, t); t += 100;
+        } else {
+          at(function(){ l.classList.add('lit'); }, t); t += 45;
+        }
+      });
+      closeScn(); t += 220;
+      at(function(){ settle(performance.now() - t0); }, t);
+    }
+    runBtn.addEventListener('click', run);
+    if ('IntersectionObserver' in window){
+      var tio = new IntersectionObserver(function(entries){
+        if (entries[0].isIntersecting){ tio.disconnect(); run(); }
+      }, { threshold: 0.35 });
+      term.classList.add('armed'); sum.classList.remove('show');
+      tio.observe(term);
+    }
+  }
+
+  /* copy email */
+  var copyBtn = document.getElementById('copyEmail');
+  if (copyBtn){
+    copyBtn.addEventListener('click', function(){
+      var email = copyBtn.getAttribute('data-email');
+      function done(){ copyBtn.textContent = 'Copied ✓'; setTimeout(function(){ copyBtn.textContent = 'Copy email'; }, 2200); }
+      if (navigator.clipboard && window.isSecureContext){
+        navigator.clipboard.writeText(email).then(done, function(){ location.href = 'mailto:' + email; });
+      } else {
+        var ta = document.createElement('textarea'); ta.value = email; document.body.appendChild(ta);
+        ta.select(); try { document.execCommand('copy'); done(); } catch(e){} document.body.removeChild(ta);
+      }
     });
-  });
+  }
 })();
 </script>
 </body>
